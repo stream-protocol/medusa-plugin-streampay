@@ -11,7 +11,7 @@ import streampayjs from "stream-javascript";
 import { StreamPayment } from "../models/stream-payment";
 import { StreamPaymentRepository } from "../repositories/stream-payment";
 
-class StreamUSDCPaymentService extends AbstractPaymentService {
+class StreamSTRMPaymentService extends AbstractPaymentService {
   protected manager_: EntityManager;
   protected transactionManager_: EntityManager;
 
@@ -46,7 +46,7 @@ class StreamUSDCPaymentService extends AbstractPaymentService {
         options.daemonProviderPassword
       );
 
-      // Create USDC (Solana-based) wallet
+      // Create Stream Token (STRM) wallet. SPL-token compliant wallet, example. Phantom.
       this.wallet = await solanaWeb3.Keypair.generate();
     }
   }
@@ -58,16 +58,16 @@ class StreamUSDCPaymentService extends AbstractPaymentService {
     streamPayment.cart_id = paymentSession.cart_id;
     streamPayment.total_amount = paymentSession.cart.total!;
     streamPayment.user_email = paymentSession.cart.email;
-    streamPayment.usdc_wallet_addr = this.wallet.publicKey.toString();
+    streamPayment.strm_wallet_addr = this.wallet.publicKey.toString();
     await this.streamPaymentRepository.save(streamPayment);
 
     return {
-      "paymentAddress": streamPayment.usdc_wallet_addr,
+      "paymentAddress": streamPayment.strm_wallet_addr,
     };
   }
 
-  // Implement other methods for USDC (Solana) transactions and interactions
+  // Implement other methods for Stream Token transactions and interactions
 
 }
 
-export default StreamUSDCPaymentService;
+export default StreamSTRMPaymentService;
