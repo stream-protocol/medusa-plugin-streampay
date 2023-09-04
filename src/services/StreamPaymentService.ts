@@ -1,5 +1,5 @@
 import {
-  AbstractPaymentService,
+  AbstractPaymentsService,
   Cart,
   Data,
   Payment,
@@ -7,34 +7,33 @@ import {
   PaymentSessionStatus,
 } from "@medusajs/medusa";
 import { EntityManager } from "typeorm";
-import solanaWeb3 from "your-solana-web3-library"; // Import your Solana Web3 library
-import streampayjs from "streampay-web3.js@stream-pay/web3.js";
-import { StreamPayment } from "../models/stream-payment";
-import { StreamPaymentRepository } from "../repositories/stream-payment";
+import solanaWeb3 from "@solana/web3.js"; // Import Solana Web3 library
+import { StreamPayments } from "../models/stream-payment";
+import { StreamPaymentsRepository } from "../repositories/stream-payment";
 
-class StreamPaymentService extends AbstractPaymentService {
+class StreamPaymentsService extends AbstractPaymentsService {
   protected manager_: EntityManager;
   protected transactionManager_: EntityManager;
 
-  private streamPaymentRepository: StreamPaymentRepository;
-  private solanaConnection: solanaWeb3.Connection; // Initialize your Solana connection
+  private streamPaymentsRepository: StreamPaymentsRepository;
+  private solanaConnection: solanaWeb3.Connection; // Initialize Solana connection
   private streamDaemon: any = null;
   private wallet: any = null;
 
   constructor(
     {
-      streamPaymentRepository,
+      streamPaymentsRepository,
     },
     options
   ) {
     super(
       {
-        streamPaymentRepository,
+        streamPaymentsRepository,
       },
       options
     );
 
-    this.streamPaymentRepository = streamPaymentRepository;
+    this.streamPaymentsRepository = streamPaymentsRepository;
     this.solanaConnection = new solanaWeb3.Connection(options.solanaProviderUrl);
   }
 
@@ -42,14 +41,14 @@ class StreamPaymentService extends AbstractPaymentService {
     if (this.streamDaemon == null) {
       try {
         // Connect to StreamPay daemon
-        this.streamDaemon = await streampayjs.connectToDaemonRpc(
-          this.options.daemonProviderUrl,
-          this.options.daemonProviderUser,
-          this.options.daemonProviderPassword
+        this.streamDaemon = await solanaWeb3.connectToDaemonRpc(
+          options.daemonProviderUrl,
+          options.daemonProviderUser,
+          options.daemonProviderPassword
         );
 
         // Create Solana wallet
-        this.wallet = await solanaWeb3.Keypair.generate();
+        this.wallet = solanaWeb3.Keypair.generate();
       } catch (error) {
         throw new Error("Error connecting to StreamPay daemon or creating wallet.");
       }
@@ -60,10 +59,10 @@ class StreamPaymentService extends AbstractPaymentService {
     await this.connect();
 
     try {
-      const streamPayment = new StreamPayment();
-      streamPayment.cart_id = paymentSession.cart_id;
-      streamPayment.total_amount = paymentSession.cart.total!;
-      streamPayment.user_email = paymentSession.cart.email;
+      const streamPayments = new StreamPayments();
+      streamPayments.cart_id = paymentSession.cart_id;
+      streamPayments.total_amount = paymentSession.cart.total!;
+      streamPayments.user_email = paymentSession.cart.email;
 
       let paymentAddress = "";
 
@@ -84,8 +83,8 @@ class StreamPaymentService extends AbstractPaymentService {
           throw new Error("Invalid token type.");
       }
 
-      streamPayment.payment_wallet_addr = paymentAddress;
-      await this.streamPaymentRepository.save(streamPayment);
+      streamPayments.payment_wallet_addr = paymentAddress;
+      await this.streamPaymentsRepository.save(streamPayments);
 
       return {
         "paymentAddress": paymentAddress,
@@ -142,10 +141,10 @@ class StreamPaymentService extends AbstractPaymentService {
     if (this.solanaConnection) {
       this.solanaConnection.disconnect();
     }
-    if (this.streampayDaemon) {
-      this.streampayDaemon.close();
+    if (this.streamDaemon) {
+      this.streamDaemon.close();
     }
   }
 }
 
-export default StreamPaymentService;
+export default StreamPaymentsService;

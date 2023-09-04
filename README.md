@@ -1,32 +1,136 @@
-# Stream Payment Plugins for Medusa (Project)
+# StreamPay Medusa Plugin
 
-Enhance and Extend Medusa's Web3 Payment Functionality with Stream Payment Plugins.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/stream-protocol/medusa-plugin-streampay.git/blob/main/LICENSE)
+The StreamPay Medusa Plugin allows you to integrate StreamPay's payment processing capabilities seamlessly into your Medusa-based e-commerce platform.
 
-## Introduction
+## Table of Contents
 
-The Stream Payment Plugins for Medusa provide a powerful solution for extending and enhancing the web3 payment capabilities within the Medusa e-commerce platform. This repository contains a set of plugins that seamlessly integrate with Medusa's core, enabling you to take advantage of advanced payment features without the need for separate server resources or infrastructure.
-
-The Stream Payment Plugins for Medusa provide an efficient and integrated solution to enhance web3 payments functionality within the Medusa platform.
-
-Unlike traditional commerce solutions that require the development of separate web applications for extending features, our architecture offers a streamlined approach. Our plugins operate within the same process as the core system, eliminating the need for additional server resources, infrastructure, and ongoing maintenance. This architecture not only ensures optimal resource utilization but also allows plugins to seamlessly utilize all other services as dependencies and gain access to the database.
-
-By leveraging Stream Payment Plugins, you can easily augment the capabilities of Medusa's web3 payments system without the complexity of managing separate applications or the burden of setting up dedicated server resources. This integrated approach empowers you to build upon existing functionality while maintaining a cohesive and efficient ecosystem.
-
-With Stream Payment Plugins, you can tap into the full potential of web3 payments within Medusa, providing an enhanced experience for users and streamlining your development efforts.
-
-## Features
-
-- **Seamless Integration**: Plugins run within the same process as Medusa's core, allowing them to utilize existing services and access the database as dependencies.
-
-- **Optimal Resource Utilization**: The architecture eliminates the need for additional server capacity, reducing operational costs and maintenance efforts.
-
-- **Enhanced Web3 Payments**: Easily augment the core functionality of Medusa's web3 payments system, including authorization, escrow, capture, refund, and more.
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 ## Installation
 
-1. Clone this repository:
+You can install this Medusa plugin using npm or yarn:
 
-   ```sh
-   git clone <https://github.com/stream-protocol/medusa-plugin-streampay.git>
+```bash
+npm install streampay-medusa-plugin --save
+# or
+yarn add streampay-medusa-plugin
+```
+
+## Configuration
+
+To use this plugin, you need to add it to your Medusa configuration file (usually `medusa-config.js` or `medusa-config.json`). Here is an example of how to configure and enable the plugin:
+
+```json
+{
+  "plugins": [
+    {
+      "resolve": "streampay-medusa-plugin",
+      "options": {
+        "api_key": "YOUR_STREAMPAY_API_KEY",
+        // Your other plugin configuration options here
+      }
+    }
+  ]
+}
+```
+
+## Usage
+
+Explain how to use your plugin, including any code examples or configurations that the user needs to apply.
+
+```javascript
+// Example code demonstrating how to use the plugin
+const medusa = require("medusa");
+
+medusa.start().then(() => {
+  // Your Medusa instance is now using the StreamPay plugin
+});
+```
+
+## Folder Structure
+
+Here is the recommended folder structure when using this plugin:
+
+```
+project-root/
+├── src/
+│   ├── controllers/
+│   │   ├── CartController.ts
+│   │   ├── ProductController.ts
+│   │   ├── ...
+│   ├── models/
+│   │   ├── Cart.ts
+│   │   ├── Product.ts
+│   │   ├── ...
+│   ├── routes/
+│   │   ├── cartRoutes.ts
+│   │   ├── productRoutes.ts
+│   │   ├── ...
+│   ├── services/
+│   │   ├── CartService.ts
+│   │   ├── ProductService.ts
+│   │   ├── ...
+│   ├── payment/
+│   │   ├── StreamUSDCPaymentService.ts
+│   │   ├── StreamSOLPaymentService.ts
+│   │   ├── StreamSTRMPaymentService.ts
+│   │   ├── StreamEURCPaymentService.ts
+│   │   ├── StreamPaymentCore.ts
+│   │   └── ...
+│   ├── repositories/
+│   │   ├── CartRepository.ts
+│   │   ├── ProductRepository.ts
+│   │   ├── ...
+│   ├── types/
+│   │   ├── MedusaTypes.ts
+│   │   ├── StreamPayTypes.ts
+│   ├── app.ts
+│   ├── server.ts
+├── tests/
+│   ├── unit/
+│   │   ├── StreamUSDCPaymentService.test.ts
+│   │   ├── StreamSOLPaymentService.test.ts
+│   │   ├── ...
+│   ├── integration/
+│   │   ├── apiRoutes.test.ts
+│   │   ├── ...
+│   ├── helpers/
+│   │   ├── testUtils.ts
+│   ├── setup.ts
+├── node_modules/
+├── tsconfig.json
+├── package.json
+├── package-lock.json
+├── README.md
+
+```
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+
+This plugin is open-source and available under the [MIT License](LICENSE).
+
+## Author
+
+[Your Name]
+
+## Acknowledgments
+
+Mention any libraries, tools, or resources that your plugin uses or is inspired by.
+```
+
+Replace `YOUR_STREAMPAY_API_KEY`, `[Your Plugin Name]`, `[your-plugin-name]`, and other placeholders with your specific details. Customize the usage examples and instructions to make it as clear as possible for other developers who want to use your plugin.
+
+Remember to include your StreamPay API key and provide detailed information on the configuration options required for the plugin to work correctly.

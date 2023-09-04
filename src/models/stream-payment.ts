@@ -1,41 +1,36 @@
+// Import necessary modules and dependencies
 import {
-    Column,
-    CreateDateColumn,
-    DeleteDateColumn,
     Entity,
-    PrimaryColumn,
+    PrimaryGeneratedColumn,
+    Column,
+    BaseEntity,
+    CreateDateColumn,
     UpdateDateColumn,
-} from "typeorm";
-
-@Entity()
-export class StreamPayment {
-    @PrimaryColumn()
-    id: string
-
-    @Column({ nullable: false })
-    cart_id: string
-
-    @Column({ nullable: false })
-    total_amount: number
-
-    @Column({ nullable: true })
-    user_email: string
-
-    @Column({ nullable: false })
-    virtual_wallet_addr: string
-
-    @Column({ nullable: false })
-    virtual_wallet_pkey: string
-
-    @Column({ nullable: false })
-    virtual_wallet_vkey: string
-
-    @CreateDateColumn({ nullable: false })
-    created_at: Date
-
-    @UpdateDateColumn({ nullable: false })
-    updated_at: Date
-
-    @DeleteDateColumn({ nullable: true })
-    deleted_at: Date
-}
+  } from "typeorm";
+  
+  @Entity()
+  class StreamPayment extends BaseEntity {
+    @PrimaryGeneratedColumn()
+    id: number;
+  
+    @Column({ type: "integer" })
+    cart_id: number;
+  
+    @Column({ type: "decimal", precision: 10, scale: 2 })
+    total_amount: number;
+  
+    @Column({ type: "string" })
+    user_email: string;
+  
+    @Column({ type: "string", nullable: true })
+    payment_wallet_addr: string;
+  
+    @CreateDateColumn({ type: "timestamp" })
+    created_at: Date;
+  
+    @UpdateDateColumn({ type: "timestamp" })
+    updated_at: Date;
+  }
+  
+  export default StreamPayment;
+  

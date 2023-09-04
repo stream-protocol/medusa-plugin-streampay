@@ -1,13 +1,10 @@
 import {
   AbstractPaymentService,
-  Cart,
-  Data,
   PaymentSession,
-  PaymentSessionStatus,
+  Data,
 } from "@medusajs/medusa";
 import { EntityManager } from "typeorm";
-import solanaWeb3 from "your-solana-web3-library"; // Import your Solana Web3 library
-import streampayjs from "stream-javascript";
+import solanaWeb3 from "solana/web3.js"; // Import your Solana Web3 library// Import StreamPay Web3 library
 import { StreamPayment } from "../models/stream-payment";
 import { StreamPaymentRepository } from "../repositories/stream-payment";
 
@@ -26,28 +23,27 @@ class StreamUSDCPaymentService extends AbstractPaymentService {
     },
     options
   ) {
-    super(
-      {
-        streamPaymentRepository,
-      },
-      options
-    );
-
+    super();
     this.streamPaymentRepository = streamPaymentRepository;
     this.solanaConnection = new solanaWeb3.Connection(options.solanaProviderUrl);
+    this.options = options; // You should store your options to access them later
   }
 
   private async connect() {
-    if (this.streamDaemon == null) {
-      // Connect to StreamPay daemon
-      this.streamDaemon = await streampayjs.connectToDaemonRpc(
-        options.daemonProviderUrl,
-        options.daemonProviderUser,
-        options.daemonProviderPassword
-      );
+    if (!this.streamDaemon) {
+      try {
+        // Connect to StreamPay daemon
+        this.streamDaemon = await streampayjs.connectToDaemonRpc(
+          this.options.daemonProviderUrl,
+          this.options.daemonProviderUser,
+          this.options.daemonProviderPassword
+        );
 
-      // Create USDC (Solana-based) wallet
-      this.wallet = await solanaWeb3.Keypair.generate();
+        // Create USDC (Solana-based) wallet
+        this.wallet = solanaWeb3.Keypair.generate();
+      } catch (error) {
+        throw new Error("Error connecting to StreamPay daemon or creating wallet.");
+      }
     }
   }
 
@@ -59,6 +55,7 @@ class StreamUSDCPaymentService extends AbstractPaymentService {
     streamPayment.total_amount = paymentSession.cart.total!;
     streamPayment.user_email = paymentSession.cart.email;
     streamPayment.usdc_wallet_addr = this.wallet.publicKey.toString();
+
     await this.streamPaymentRepository.save(streamPayment);
 
     return {
@@ -67,7 +64,6 @@ class StreamUSDCPaymentService extends AbstractPaymentService {
   }
 
   // Implement other methods for USDC (Solana) transactions and interactions
-
 }
 
 export default StreamUSDCPaymentService;

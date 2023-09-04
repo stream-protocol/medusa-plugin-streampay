@@ -1,4 +1,4 @@
-import StreamPay from "streampay-core"
+import StreamPay from "streampay-core-test"
 import { EOL } from "os"
 import {
   AbstractPaymentProcessor,

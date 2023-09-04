@@ -1,9 +1,20 @@
+import StreamSOLPaymentService from "./stream-sol-payment-service"; // Adjust the import path
+import { StreamPaymentRepository } from "../repositories/stream-payment";
+
+// Mock StreamPaymentRepository and other dependencies as needed
+const mockStreamPaymentRepository: Partial<StreamPaymentRepository> = {
+  // Implement required methods or mock them
+};
+
+describe("StreamSOLPaymentService", () => {
+  let paymentService: StreamSOLPaymentService;
+
   // Define mainnet and testnet Solana provider URLs
   const mainnetSolanaProviderUrl = "https://api.mainnet.solana.com"; // Replace with the mainnet URL
   const testnetSolanaProviderUrl = "https://api.devnet.solana.com"; // Replace with an appropriate testnet URL
 
   beforeEach(() => {
-    paymentService = new StreamUSDCPaymentService(
+    paymentService = new StreamSOLPaymentService(
       {
         streamPaymentRepository: mockStreamPaymentRepository as any, // Use appropriate type
       },
@@ -11,7 +22,7 @@
         // Set the mainnet and testnet Solana provider URLs
         mainnetSolanaProviderUrl,
         testnetSolanaProviderUrl,
-        daemonProviderUrl: "https://api.devnet.solana.com",
+        daemonProviderUrl: "https://your-daemon-provider-url.com",
         daemonProviderUser: "your-daemon-username",
         daemonProviderPassword: "your-daemon-password",
       }
@@ -27,10 +38,8 @@
       // Mock necessary methods or dependencies
       // Call getPaymentData and assert the result
       const paymentSession: PaymentSession = /* Mock paymentSession */;
-      const tokenType: string = "USDC";
-      const isTestnet: boolean = false;
 
-      const paymentData = await paymentService.getPaymentData(paymentSession, tokenType, isTestnet);
+      const paymentData = await paymentService.getPaymentData(paymentSession);
 
       // Assert the paymentData
       expect(paymentData.paymentAddress).toBeDefined();
@@ -41,10 +50,8 @@
       // Mock necessary methods or dependencies
       // Call getPaymentData and assert the result
       const paymentSession: PaymentSession = /* Mock paymentSession */;
-      const tokenType: string = "USDC";
-      const isTestnet: boolean = true;
 
-      const paymentData = await paymentService.getPaymentData(paymentSession, tokenType, isTestnet);
+      const paymentData = await paymentService.getPaymentData(paymentSession);
 
       // Assert the paymentData
       expect(paymentData.paymentAddress).toBeDefined();
@@ -55,19 +62,15 @@
       // Mock necessary methods or dependencies to simulate an error
       // Call getPaymentData and expect it to throw an error
       const paymentSession: PaymentSession = /* Mock paymentSession */;
-      const tokenType: string = "USDC";
-      const isTestnet: boolean = false;
 
       // Mock an error scenario
       // For example, if you want to simulate an error when connecting to Solana
       jest.spyOn(paymentService, "connect").mockRejectedValue(new Error("Simulated error"));
 
       // Call getPaymentData and expect it to throw an error
-      await expect(paymentService.getPaymentData(paymentSession, tokenType, isTestnet)).rejects.toThrowError(
-        "Simulated error"
-      );
+      await expect(paymentService.getPaymentData(paymentSession)).rejects.toThrowError("Simulated error");
     });
   });
 
-  // Add similar test cases for other methods of StreamUSDCPaymentService
+  // Add similar test cases for other methods of StreamSOLPaymentService
 });

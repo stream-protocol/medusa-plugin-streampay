@@ -6,8 +6,7 @@ import {
   PaymentSessionStatus,
 } from "@medusajs/medusa";
 import { EntityManager } from "typeorm";
-import solanaWeb3 from "your-solana-web3-library"; // Import your Solana Web3 library
-import streampayjs from "stream-javascript";
+import solanaWeb3 from "solana/web3.js"; // Import your Solana Web3 library
 import { StreamPayment } from "../models/stream-payment";
 import { StreamPaymentRepository } from "../repositories/stream-payment";
 
