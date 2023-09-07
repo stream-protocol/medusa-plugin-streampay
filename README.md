@@ -2,22 +2,24 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The StreamPay Medusa Plugin allows you to integrate StreamPay's payment processing capabilities seamlessly into your Medusa-based e-commerce platform.
+The Stream**Pay** Medusa Plugin allows you to integrate StreamPay's payment processing capabilities seamlessly into Medusa-based e-commerce platform.
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [StreamPay Medusa Plugin](#streampay-medusa-plugin)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+  - [Folder Structure](#folder-structure)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Author](#author)
+  - [Acknowledgments](#acknowledgments)
 
 ## Installation
 
-You can install this Medusa plugin using npm or yarn:
+You can install Stream**Pay** Medusa plugin using npm or yarn:
 
 ```bash
 npm install streampay-medusa-plugin --save
@@ -35,13 +37,15 @@ To use this plugin, you need to add it to your Medusa configuration file (usuall
     {
       "resolve": "streampay-medusa-plugin",
       "options": {
-        "api_key": "YOUR_STREAMPAY_API_KEY",
+        "api_key": "STREAMPAY_API_KEY",
         // Your other plugin configuration options here
       }
     }
   ]
 }
 ```
+
+Replace `"STREAMPAY_API_KEY"` with your actual StreamPay Medusa API key, and configure any other plugin-specific options as needed.
 
 ## Usage
 
@@ -61,7 +65,7 @@ medusa.start().then(() => {
 Here is the recommended folder structure when using this plugin:
 
 ```
-project-root/
+medusajs-project-root/
 ├── src/
 │   ├── controllers/
 │   │   ├── CartController.ts
@@ -124,13 +128,9 @@ This plugin is open-source and available under the [MIT License](LICENSE).
 
 ## Author
 
-[Your Name]
+Stream Protocol / **Stream**Payments™
 
 ## Acknowledgments
 
-Mention any libraries, tools, or resources that your plugin uses or is inspired by.
-```
-
-Replace `YOUR_STREAMPAY_API_KEY`, `[Your Plugin Name]`, `[your-plugin-name]`, and other placeholders with your specific details. Customize the usage examples and instructions to make it as clear as possible for other developers who want to use your plugin.
-
-Remember to include your StreamPay API key and provide detailed information on the configuration options required for the plugin to work correctly.
+- Solana Web3.js
+  
