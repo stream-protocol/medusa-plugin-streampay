@@ -3,7 +3,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The Stream**Pay** Medusa Plugin allows you to integrate StreamPay's payment processing capabilities seamlessly into the Medusa-based e-commerce platform.
+The Stream**Pay** Medusa Plugin allows you to integrate Strem**Pay**'s payment processing capabilities seamlessly into the Medusa-based e-commerce platform.
 
 ## Table of Contents
 
@@ -30,7 +30,7 @@ yarn add streampay-medusa-plugin
 
 ## Configuration
 
-To use this plugin, you need to add it to your Medusa configuration file (usually `medusa-config.js` or `medusa-config.json`). Here is an example of how to configure and enable the plugin:
+To use this plugin, you need to add it to Strem**Pay** Medusa configuration file (usually `medusa-config.js` or `medusa-config.json`). Here is an example of how to configure and enable the plugin:
 
 ```json
 {
@@ -39,25 +39,25 @@ To use this plugin, you need to add it to your Medusa configuration file (usuall
       "resolve": "streampay-medusa-plugin",
       "options": {
         "api_key": "STREAMPAY_API_KEY",
-        // Your other plugin configuration options here
+        // Other plugin configuration options here
       }
     }
   ]
 }
 ```
 
-Replace `"STREAMPAY_API_KEY"` with your actual StreamPay Medusa API key, and configure any other plugin-specific options as needed.
+Replace `"STREAMPAY_API_KEY"` with the actual Strem**Pay** Medusa API key, and configure any other plugin-specific options as needed.
 
 ## Usage
 
-Explain how to use your plugin, including any code examples or configurations that the user needs to apply.
+Explain how to use the Strem**Pay** plugin, including any code examples or configurations that the user needs to apply.
 
 ```javascript
 // Example code demonstrating how to use the plugin
 const medusa = require("medusa");
 
 medusa.start().then(() => {
-  // Your Medusa instance is now using the StreamPay plugin
+  // Medusa instance is now using the StreamPay plugin
 });
 ```
 
