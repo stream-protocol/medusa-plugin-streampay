@@ -1,8 +1,9 @@
 # StreamPay Medusa Plugin
+**Proof of Concept**
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The Stream**Pay** Medusa Plugin allows you to integrate StreamPay's payment processing capabilities seamlessly into Medusa-based e-commerce platform.
+The Stream**Pay** Medusa Plugin allows you to integrate StreamPay's payment processing capabilities seamlessly into the Medusa-based e-commerce platform.
 
 ## Table of Contents
 
