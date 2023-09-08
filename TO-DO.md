@@ -47,11 +47,12 @@ This TODO list contains tasks, features, and improvements for the StreamPay Medu
 
 ## Bugs
 
-- [ ] Fix the issue with the product price not updating correctly.
-- [ ] Address the occasional database connection error.
-- [ ] Investigate and fix the intermittent 500 server error.
+- [ ] Fix the bug where the plugin is not working correctly.
+- [ ] Address issues related to hard configurations.
+- [ ] Resolve minor configuration problems.
+- [ ] Fix any issues with the plugin's functionality.
 
-## Miscellaneous
+## Additional Notes
 
 - [ ] Update the project's documentation.
 - [ ] Review and update the project's dependencies.
@@ -59,5 +60,9 @@ This TODO list contains tasks, features, and improvements for the StreamPay Medu
 - [ ] Plan and execute load testing for scalability.
 - [ ] Create a roadmap for future development.
 - [ ] Prepare for the next release.
+
+## Important Note!
+
+- [ ] Add Medusa packages and npm dependencies as needed for the plugin.
 
 Feel free to add, modify, or remove items from this list as needed. It's a dynamic document to help you keep track of tasks and improvements in your project.
