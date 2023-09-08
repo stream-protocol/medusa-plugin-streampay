@@ -5,9 +5,9 @@ import {
     Payment,
     PaymentSession,
     PaymentSessionStatus,
-  } from "@medusajs/medusa";
+  } from "@medusajs/medusa"; // Create and add @stream-payjs/streampay 
   import { EntityManager } from "typeorm";
-  import { StreamPayEuroc } from "../models/streampay-euroc"; // Import your Euroc model
+  import { StreamPayEuroc } from "../models/streampay-euroc"; // // Transfer src/payment folder?
   import { StreamPayEurocRepository } from "../repositories/streampay-euroc"; // Import your Euroc repository
   import { PublicKey, Transaction, Connection } from "@solana/web3.js";
   

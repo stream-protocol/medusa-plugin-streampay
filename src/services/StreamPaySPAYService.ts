@@ -7,7 +7,7 @@ import {
     PaymentSessionStatus,
   } from "@medusajs/medusa";
   import { EntityManager } from "typeorm";
-  import { StreamPaySPAY } from "../models/StreamPaySPAY";
+  import { StreamPaySPAY } from "../models/StreamPaySPAY"; // Transfer src/payment folder?
   import { StreamPaySPAYRepository } from "../repositories/streampay-spay";
   import { PublicKey, Transaction, Connection } from "@solana/web3.js";
   

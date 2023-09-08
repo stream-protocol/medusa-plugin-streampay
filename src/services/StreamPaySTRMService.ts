@@ -5,7 +5,7 @@ import {
     Payment,
     PaymentSession,
     PaymentSessionStatus,
-  } from "@medusajs/medusa";
+  } from "@medusajs/medusa"; // Create and add @stream-payjs/streampay 
   import { EntityManager } from "typeorm";
   import { StreamPaySTRM } from "../models/StreamPaySTRM";
   import { StreamPaySTRMRepository } from "../repositories/streampay-strm";
