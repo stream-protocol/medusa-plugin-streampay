@@ -1,14 +1,15 @@
 {
-    "name": "medusa-starter-default",
+    "name": "medusa-plugin-streampay",
     "version": "0.0.1",
-    "description": "A starter for Medusa projects.",
-    "author": "Sebastian Rindom <skrindom@gmail.com>",
+    "description": "A starter for Medusa web3 payment projects.",
+    "author": "SStream Protocol <contact@streamprotocol.org>",
     "license": "MIT",
     "keywords": [
         "postgres",
         "typescript",
         "streampay",
         "gateway",
+        "payments",
         "ecommerce",
         "headless",
         "medusa"

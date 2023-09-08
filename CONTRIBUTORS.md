@@ -1,109 +1,56 @@
-Creating a well-organized folder structure for Stream Payment Gateway Medusajs project is crucial for maintaining code readability and scalability. Here's a suggested folder structure for a TypeScript project with StreamPay-related functionality:
+# Contributors to Medusa Web3 Payment Plugin StreamPay™
 
-### Folded Structure:
+We would like to extend our heartfelt thanks to the following individuals and organizations who have contributed to the Medusa Web3 Payment Plugin Stream**Pay™**. Your dedication and hard work are greatly appreciated.
 
-stream-payment-gateway-medusajs-project-root/
-│
-├── src/
-│   ├── controllers/
-│   │   ├── streamPayController.ts
-│   │   └── ...
-│   │
-│   ├── models/
-│   │   ├── streampay.ts
-│   │   ├── streampay-sol.ts
-│   │   ├── streampay-spay.ts
-│   │   ├── streampay-usdc.ts
-│   │   ├── streampay-usdt.ts
-│   │   ├── streampay-strm.ts
-│   │   ├── streampay-eurc.ts
-│   │   └── ...
-│   │
-│   ├── repositories/
-│   │   ├── streampayRepository.ts
-│   │   ├── streampay-solRepository.ts (Remove Repository?)
-│   │   ├── streampay-spayRepository.ts
-│   │   ├── streampay-usdcRepository.ts
-│   │   ├── streampay-usdtRepository.ts
-│   │   ├── streampay-strmRepository.ts
-│   │   ├── streampay-eurcRepository.ts 
-│   │   └── ...
-│   │
-│   ├── services/
-│   │   ├── streamPayProviderService.ts
-│   │   ├── streamPaySOLService.ts (Remove Service? example streamPaySOL.ts)
-│   │   ├── streamPaySPAYService.ts
-│   │   ├── streamPayUSDCService.ts
-│   │   ├── streamPayUSDService.ts
-│   │   ├── streamPaySTRMService.ts
-│   │   ├── streamPayEURCService.ts
-│   │   └── ...
-│   │
-│   ├── routes/
-│   │   ├── streamPayRoutes.ts
-│   │   ├── streamPaySOLRoutes.ts
-│   │   ├── streamPaySPAYRoutes.ts
-│   │   ├── streamPayUSDCRoutes.ts
-│   │   ├── streamPayUSDRoutes.ts
-│   │   ├── streamPaySTRMRoutes.ts
-│   │   ├── streamPayEURCRoutes.ts
-│   │   └── ...
-│   │
-│   ├── config/
-│   │   ├── database.ts
-│   │   ├── solana.ts
-│   │   └── ...
-│   │
-│   ├── utils/
-│   │   ├── validation.ts
-│   │   └── ...
-│   │
-│   ├── app.ts
-│   └── index.ts
-│
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── ...
-│
-├── node_modules/
-│
-├── package.json
-├── tsconfig.json
-├── README.md
-└── ...
-```
+## Core Contributors are welcome!
 
-Explanation:
+- [Stream Protocol](https://github.com/stream-protocol)
+  - Contributions: StreamPay™ projects development and maintenance.
 
-- `src/`: This is where your project's source code resides.
+## Collaborators (Subsidiary)
 
-  - `controllers/`: Contains controller files responsible for handling HTTP requests and responses.
+- [Full Name](https://github.com/stream-payments)
+  - Contributions: StreamPayments™, StreamPOS™ and StreamPay™ development and maintenance.
 
-  - `models/`: Holds your data models (e.g., StreamPay transactions, configurations).
+## How to Contribute
 
-  - `repositories/`: Houses the repository classes for interacting with the database.
+**Medusa Web3 Payment Plugin StreamPay™ is an open-source project, and we welcome contributions from the community. Whether you're a developer, designer, tester, or someone with valuable insights, your contributions are highly valued. Here's how you can get involved:**
 
-  - `services/`: Contains the service classes that encapsulate your business logic.
+1. **Fork the Repository**: Start by forking this repository to your GitHub account.
 
-  - `routes/`: Defines the API routes and routes specific to different StreamPay types.
+2. **Clone the Repository**: Clone your forked repository to your local machine using Git.
 
-  - `config/`: Stores configuration files, including database and Solana configuration.
+3. **Contribute**: Make your contributions – whether it's coding, documentation, bug fixes, new features, or improvements – and create a new branch for each set of changes.
 
-  - `utils/`: Contains utility functions and helper code.
+4. **Commit Your Changes**: Write clear and concise commit messages to explain your changes.
 
-  - `app.ts`: Initializes and configures your Express.js application.
+5. **Push to Your Fork**: Push your changes to your forked repository on GitHub.
 
-  - `index.ts`: Entry point of your application.
+6. **Create a Pull Request**: Open a pull request (PR) from your forked repository to this main repository. Ensure you provide a clear description of your changes in the PR.
 
-- `tests/`: Contains your unit and integration tests.
+7. **Review and Collaboration**: The maintainers and the community will review your PR. Be prepared to address feedback and iterate on your changes if necessary.
 
-- `node_modules/`: The folder where your project's dependencies are installed.
+8. **Testing**: Ensure your code passes all tests and quality checks.
 
-- `package.json`: The project configuration file containing dependencies and scripts.
+9. **Merge and Celebrate**: Once your PR is approved, it will be merged into the main project. Congratulations on your contribution!
 
-- `tsconfig.json`: TypeScript configuration file.
+I´m appreciate all contributions, from small fixes to major features. By participating in this open source project, you're helping make Medusa Web3 Payment Plugin StreamPay™ better for everyone.
 
-- `README.md`: Documentation for your project.
+---
 
-This structure separates different concerns and components, making it easier to manage and scale your project. Adjust it according to your specific project requirements and organization preferences.
+**Let's work together to build a robust and feature-rich plugin for Medusa Web3 Payment with StreamPay™. Thank you for being a part of our open source community!**
+
+Contributions to this project are always welcome! If you would like to contribute, please follow project [Contribution Guidelines](CONTRIBUTING.md).
+
+### Contribution Guidelines
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature` or `git checkout -b bugfix/your-bug-fix`.
+3. Make your changes and commit them with a descriptive commit message.
+4. Push your changes to your fork: `git push origin feature/your-feature`.
+5. Submit a pull request to the main repository.
+6. Ensure your code passes all tests and checks.
+
+I´m appreciate your contributions and will review your pull requests as soon as possible. Thank you for helping make Medusa Web3 Payment Plugin Stream**Pay™** even better!
+
+
