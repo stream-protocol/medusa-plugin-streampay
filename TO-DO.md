@@ -18,7 +18,7 @@ This TODO list contains tasks, features, and improvements for the StreamPay Medu
 - [ ] Implement error handling for database queries.
 - [ ] Optimize database queries for better performance.
 - [ ] Add sorting and pagination to the product listing endpoint.
-- [ ] Update project dependencies to their latest versions.
+- [ ] Update StreamPay and Medusajs project dependencies to the latest versions.
 - [ ] Implement data caching for frequently accessed data.
 - [ ] Create StreamPayments API and SDK.
 
