@@ -1,27 +1,19 @@
 # Custom endpoints
 
-You may define custom endpoints by putting files in the `/api` directory that export functions returning an express router or a collection of express routers.
-
-```ts
+You may define custom endpoints by putting files in the `/api` directory that export functions returning an express router.
+```js
 import { Router } from "express"
-import { getConfigFile } from "medusa-core-utils"
-import { getStoreRouter } from "./routes/store"
-import { ConfigModule } from "@medusajs/medusa/dist/types/global";
 
-export default (rootDirectory) => {
-  const { configModule: { projectConfig } } = getConfigFile(
-    rootDirectory,
-    "medusa-config"
-  ) as { configModule: ConfigModule }
+export default () => {
+  const router = Router()
 
-  const storeCorsOptions = {
-    origin: projectConfig.store_cors.split(","),
-    credentials: true,
-  }
+  router.get("/hello-world", (req, res) => {
+    res.json({
+      message: "Welcome to StreamPay!"
+    })
+  })
 
-  const storeRouter = getStoreRouter(storeCorsOptions)
-
-  return [storeRouter]
+  return router;
 }
 ```
 

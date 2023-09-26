@@ -1,21 +1,38 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
-
-@Entity('streampay_transactions') // Replace with your actual table name
-export class StreamPay extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column('uuid')
-  userId: string;
-
-  @Column('decimal', { precision: 18, scale: 6 })
-  amount: number;
-
-  @Column('timestamp')
-  timestamp: Date;
-
-  @Column('text')
-  trxId: string;
-
-  // Add additional fields as needed
-}
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    ManyToOne,
+    JoinColumn,
+  } from "typeorm";
+  import { Cart } from "@medusajs/medusa";
+  
+  @Entity()
+  export class StreamPay {
+    @PrimaryGeneratedColumn()
+    id: number;
+  
+    @Column()
+    cart_id: string;
+  
+    @Column({ type: "decimal", precision: 10, scale: 2 })
+    total_amount: number;
+  
+    @Column()
+    user_email: string;
+  
+    @Column()
+    virtual_wallet_addr: string;
+  
+    @Column()
+    virtual_wallet_pkey: string;
+  
+    @Column()
+    virtual_wallet_vkey: string;
+  
+    // Define a relationship with the Cart entity
+    @ManyToOne(() => Cart)
+    @JoinColumn({ name: "cart_id", referencedColumnName: "id" })
+    cart: Cart;
+  }
+  
